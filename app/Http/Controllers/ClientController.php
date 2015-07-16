@@ -26,7 +26,7 @@ class ClientController extends Controller
     
     public function getPhone()
     {
-    	return view('oleo-client.index')
+    	return view('oleo-client.index');
     }
 
     
