@@ -17,7 +17,7 @@ Route::get('/', function () {
 
 //Route::get('api/ver1.0/{message}', 'ResponseController@index');
 Route::controller('api/ver1.0', 'ResponseController');
-Route::get('oleo-client/{message}', 'ClientController@index');
+Route::controller('oleo-client', 'ClientController');
 
 
 /*
