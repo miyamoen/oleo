@@ -1,0 +1,20 @@
+<?php
+  // ログはGETから下記のパラメータで取得できる
+ 
+/* ログデータ準備 */
+$log_data = 'Call_Sid='.$Request->input("DialCallSid","")."\n";
+$log_data .= 'DialCallStatus='.$Request->input("DialCallStatus","")."\n";
+$log_data .= 'AccountSid='.$Request->input("AccountSid","")."\n";
+$log_data .= 'CallDuration='.$Request->input("DialCallDuration","")."\n";
+$log_data .= 'RecordingUrl='.$Request->input("RecordingUrl","")."\n";
+$log_data .= '----------終了-------------'."\n\n";
+ 
+/* ログデータをファイルに保存 */
+$fp = fopen('/home/aki/database.txt', 'ab');
+if ($fp){
+  fwrite($fp,  $log_data);}
+fclose($fp);
+?>
+<Response>
+<Say language="ja-jp">通話が終了しました。</Say>
+</Response>
