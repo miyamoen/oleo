@@ -1,18 +1,3 @@
-<?php
-// include 'Services/Twilio/Capability.php';
-
-// put your Twilio API credentials here
-$accountSid = 'AC21ecd10b49eb2f291a16a8d8df8a4919';
-$authToken  = 'a0123aa3109d8f36f823feb1f56bee52';
-
-
-$capability = new Services_Twilio_Capability($accountSid, $authToken);
-$capability->allowClientOutgoing('AP0fa97707effccf58b4152301fb70c06c');
-$capability->allowClientIncoming('oleo');
-
-$token = $capability->generateToken();
-?>
-
 <!DOCTYPE html>
 <html>
   <head>
@@ -27,7 +12,7 @@ $token = $capability->generateToken();
       type="text/css" rel="stylesheet" />
     <script type="text/javascript">
 
-      Twilio.Device.setup("<?php echo $token; ?>");
+      Twilio.Device.setup("{{$token}}");
 
       Twilio.Device.ready(function (device) {
         $("#log").text("Ready");
