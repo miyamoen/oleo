@@ -40,7 +40,10 @@ class ClientController extends Controller
 
     public function getLog()
     {
-        return view('oleo.client.log');
+        $client = new Services_Twilio($this->account_sid, $this->auth_token);
+        $call = $client->account->calls->get("CAe04f4cb81e623dd7b34b9b14c0639e08");
+        return dd($call)
+        // return view('oleo.client.log');
     }
 
     public function getPhone()
