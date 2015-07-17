@@ -6,9 +6,24 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use Services_Twilio_Capability;
 
 class ClientController extends Controller
 {
+    private $account_sid;
+    private $auth_token;
+    private $app_sid;
+    private $app_name;
+
+    function __construct()
+    {
+        $this->account_sid = config('oleo.account_sid');
+        $this->auth_token = config('oleo.auth_token');
+        $this->app_sid = config('oleo.app_sid');
+        $this->app_name = config('oleo.app_name');
+
+
+    }
     /**
      * Display a listing of the resource.
      *
@@ -16,7 +31,11 @@ class ClientController extends Controller
      */
     public function getIndex()
     {
-        return view('oleo.client.index');
+        $capability = new Services_Twilio_Capability($this->account_sid, $this->auth_token);
+        $capability->allowClientOutgoing($this->app_sid);
+        $capability->allowClientIncoming($this->app_name);
+        $token = $capability->generateToken();
+        return view('oleo.client.index')->with('token', $token);
     }
 
     public function getLog()

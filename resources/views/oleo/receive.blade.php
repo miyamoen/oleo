@@ -1,4 +1,4 @@
-@extends('oleo.layout')
+@extends('layouts.twiml')
 
 @section('content')
     <Say language="ja-jp">この通話は録音されています。</Say>
