@@ -1,5 +1,5 @@
 <?php
-include 'Services/Twilio/Capability.php';
+// include 'Services/Twilio/Capability.php';
 
 // put your Twilio API credentials here
 $accountSid = 'AC21ecd10b49eb2f291a16a8d8df8a4919';
