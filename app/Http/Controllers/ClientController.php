@@ -42,7 +42,7 @@ class ClientController extends Controller
     {
         $client = new Services_Twilio($this->account_sid, $this->auth_token);
         $call = $client->account->calls->get("CAe04f4cb81e623dd7b34b9b14c0639e08");
-        return dd($call)
+        return dd($call);
         // return view('oleo.client.log');
     }
 
