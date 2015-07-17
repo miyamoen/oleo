@@ -25,7 +25,7 @@ Route::post('/record', function(){
       if (Input::has('user_name')) {
 	$hoge=gInput::get('RecordingUrl');
 	$fuga=Input::get('RecordingDuration');
-      
+
 	$fp = fopen("~database.txt", "w");
 	fwrite($fp, $hoge);
 	fwrite($fp, $fuga);

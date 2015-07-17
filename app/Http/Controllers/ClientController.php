@@ -16,18 +16,18 @@ class ClientController extends Controller
      */
     public function getIndex()
     {
-	return view('oleo-client.index');
-    }
-    
-    public function getLog()
-    {
-    	return view('oleo-client.log');
-    }
-    
-    public function getPhone()
-    {
-    	return view('oleo-client.index');
+        return view('oleo.client.index');
     }
 
-    
+    public function getLog()
+    {
+        return view('oleo.client.log');
+    }
+
+    public function getPhone()
+    {
+        return view('oleo.client.index');
+    }
+
+
 }
