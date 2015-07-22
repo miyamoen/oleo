@@ -1,12 +1,32 @@
-<?php
-  // Download/Install the PHP helper library from twilio.com/docs/libraries.
-  // This line loads the library
-// require('/home/aki/souzouapp/resources/views/oleo/Services/Twilio.php');
+@extends('layouts.master')
 
-
-// Your Account Sid and Auth Token from twilio.com/user/account
-
-// Get an object from its sid. If you do not have a sid,
-// check out the list resource examples on this page
-$call = $client->account->calls->get("CAe04f4cb81e623dd7b34b9b14c0639e08");
-print_r($call);
+@section('content')
+<div class="mdl-grid">
+  <div class="mdl-cell mdl-cell--12-col">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th class="mdl-data-table__cell--non-numeric">Call Sid</th>
+          <th class="mdl-data-table__cell--non-numeric">Dial Call Status</th>
+          <th class="mdl-data-table__cell--non-numeric">Account Sid</th>
+          <th>Call Duration</th>
+          <th class="mdl-data-table__cell--non-numeric">Recording Url</th>
+        </tr>
+      </thead>
+      <tbody>
+      @if (count($logs) > 1)
+        @foreach ($logs as $log)
+          <tr>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log['Call_Sid'] }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log['DialCallStatus'] }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log['AccountSid'] }}</td>
+            <td>{{ $log['CallDuration'] }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log['RecordingUrl'] }}</td>
+          </tr>
+        @endforeach
+      @endif
+      </tbody>
+    </table>
+  </div>
+</div>
+@endsection
