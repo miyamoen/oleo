@@ -17,11 +17,11 @@
       @if (count($logs) > 1)
         @foreach ($logs as $log)
           <tr>
-            <td class="mdl-data-table__cell--non-numeric">{{ $log['Call_Sid'] }}</td>
-            <td class="mdl-data-table__cell--non-numeric">{{ $log['DialCallStatus'] }}</td>
-            <td class="mdl-data-table__cell--non-numeric">{{ $log['AccountSid'] }}</td>
-            <td>{{ $log['CallDuration'] }}</td>
-            <td class="mdl-data-table__cell--non-numeric">{{ $log['RecordingUrl'] }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log->Call_Sid }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log->DialCallStatus }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log->AccountSid }}</td>
+            <td>{{ $log->CallDuration }}</td>
+            <td class="mdl-data-table__cell--non-numeric">{{ $log->RecordingUrl }}</td>
           </tr>
         @endforeach
       @endif
