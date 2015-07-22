@@ -31,7 +31,7 @@
         <span class="mdl-layout-title">Oleo menu</span>
         <nav class="mdl-navigation">
           <a class="mdl-navigation__link" href="http://cefce6.cplaza.engg.nagoya-u.ac.jp/oleo-client/log">Log</a>
-          <a class="mdl-navigation__link" href="http://cefce6.cplaza.engg.nagoya-u.ac.jp/oleo-client/black_list">Black List</a>
+          <a class="mdl-navigation__link" href="http://cefce6.cplaza.engg.nagoya-u.ac.jp/oleo-client/black-list">Black List</a>
         </nav>
       </div>
 
