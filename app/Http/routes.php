@@ -18,7 +18,7 @@ Route::get('/', function () {
 //Route::get('api/ver1.0/{message}', 'ResponseController@index');
 Route::controller('api/ver1.0', 'ResponseController');
 Route::controller('oleo-client', 'ClientController');
-
+Route::controller('oleo-client/black_list', 'BlackListController');
 
 /*
 Route::post('/record', function(){
