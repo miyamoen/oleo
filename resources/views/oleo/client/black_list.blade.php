@@ -20,10 +20,25 @@
         </div>
       </div>
     </form>
+  </div>
 
+  <div class="mdl-cell mdl-cell--6-col">
+    <table class="mdl-data-table mdl-js-data-table mdl-data-table--selectable mdl-shadow--2dp">
+      <thead>
+        <tr>
+          <th>Black Number</th>
+        </tr>
+      </thead>
+      <tbody>
+      @if (count($black_numbers) > 1)
+        @foreach ($black_numbers as $black_number)
+          <tr>
+            <td>{{ $black_number }}</td>
+          </tr>
+        @endforeach
+      @endif
+      </tbody>
+    </table>
   </div>
 </div>
-
-
-
 @endsection

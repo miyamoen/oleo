@@ -37,7 +37,11 @@ class BlackListController extends Controller
         $capability->allowClientOutgoing($this->app_sid);
         $capability->allowClientIncoming($this->app_name);
         $token = $capability->generateToken();
-        return view('oleo.client.black_list')->with('token', $token);
+        $black_numbers = DB::table('black_lists')->get();
+        dd($black_numbers);
+        return view('oleo.client.black_list')
+            ->with('token', $token)
+            ->with('black_numbers', $black_numbers);
     }
 
     public function getLog()
