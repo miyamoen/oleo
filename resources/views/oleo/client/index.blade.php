@@ -4,8 +4,8 @@
     <title>Oleo Client</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
-    <link rel="stylesheet" href="./material.min.css">
-    <script src="./material.min.js"></script>
+    <link rel="stylesheet" href="{{public_path(css/material.min.css)}}">
+    <script src="{{public_path(js/material.min.js)}}"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
       <script type="text/javascript"
         src="https//static.twilio.com/libs/twiliojs/1.2/twilio.min.js">
@@ -13,8 +13,7 @@
       <script type="text/javascript"
         src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
       </script>
-      <link href="http://static0.twilio.com/bundles/quickstart/client.css"
-        type="text/css" rel="stylesheet" />
+
       <script type="text/javascript">
 
         Twilio.Device.setup("{{$token}}");
