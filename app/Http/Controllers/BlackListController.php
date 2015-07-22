@@ -9,7 +9,7 @@ use App\Http\Controllers\Controller;
 use Services_Twilio_Capability;
 use Services_Twilio;
 
-class ClientController extends Controller
+class BlackListController extends Controller
 {
     private $account_sid;
     private $auth_token;
