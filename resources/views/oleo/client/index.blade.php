@@ -13,45 +13,6 @@
     <script type="text/javascript"
       src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
 
-      <script type="text/javascript">
-
-        Twilio.Device.setup("{{$token}}");
-
-        Twilio.Device.ready(function (device) {
-          $("#log").text("Ready");
-        });
-
-        Twilio.Device.error(function (error) {
-          $("#log").text("Error: " + error.message);
-        });
-
-        Twilio.Device.connect(function (conn) {
-          $("#log").text("Successfully established call");
-        });
-
-        Twilio.Device.disconnect(function (conn) {
-          $("#log").text("Call ended");
-        });
-
-        Twilio.Device.incoming(function (conn) {
-          $("#log").text("Incoming connection from " + conn.parameters.From);
-          // accept the incoming connection and start two-way audio
-          conn.accept();
-        });
-
-
-        function call() {
-  //        Twilio.Device.connect();
-          // get the phone number to connect the call to
-          params = {"PhoneNumber": $("#number").val()};
-          Twilio.Device.connect(params);
-        }
-
-        function hangup() {
-          Twilio.Device.disconnectAll();
-        }
-
-      </script>
   </head>
   <body>
     <div class="mdl-layout mdl-js-layout mdl-layout--fixed-header mdl-layout--fixed-tabs">
@@ -115,28 +76,48 @@
             </div>
           </div>
         </section>
-
-
-
-
-
-
-
-
-      <!-- <div id="log_button">
-        <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent" onClick="location.href='http://cefce6.cplaza.engg.nagoya-u.ac.jp/oleo-client/log'">
-          <i class="material-icons">history</i>
-        </button>
-      </div>
-      <span for="log_button" class="mdl-tooltip mdl-tooltip--large">SHOW LOG</span>
-      -->
-
-
-
-
-
       </main>
-  </div>
+    </div>
+
+    <script type="text/javascript">
+
+      Twilio.Device.setup("{{$token}}");
+
+      Twilio.Device.ready(function (device) {
+        $("#log").text("Ready");
+      });
+
+      Twilio.Device.error(function (error) {
+        $("#log").text("Error: " + error.message);
+      });
+
+      Twilio.Device.connect(function (conn) {
+        $("#log").text("Successfully established call");
+      });
+
+      Twilio.Device.disconnect(function (conn) {
+        $("#log").text("Call ended");
+      });
+
+      Twilio.Device.incoming(function (conn) {
+        $("#log").text("Incoming connection from " + conn.parameters.From);
+        // accept the incoming connection and start two-way audio
+        conn.accept();
+      });
+
+
+      function call() {
+//        Twilio.Device.connect();
+        // get the phone number to connect the call to
+        params = {"PhoneNumber": $("#number").val()};
+        Twilio.Device.connect(params);
+      }
+
+      function hangup() {
+        Twilio.Device.disconnectAll();
+      }
+
+    </script>
 
   </body>
 </html>
