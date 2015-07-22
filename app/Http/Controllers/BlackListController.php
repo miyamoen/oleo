@@ -44,6 +44,12 @@ class BlackListController extends Controller
             ->with('black_numbers', $black_numbers);
     }
 
+    public function postIndex(Request $request)
+    {
+        DB::table('black_lists')->insert(['number' => $request->input('black_number')]);
+        return back();
+    }
+
     public function getLog()
     {
         $client = new Services_Twilio($this->account_sid, $this->auth_token);
