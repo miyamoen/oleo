@@ -19,6 +19,7 @@ Route::get('/', function () {
 Route::controller('api/ver1.0', 'ResponseController');
 Route::controller('oleo-client', 'ClientController');
 Route::controller('oleo-client/black_list', 'BlackListController');
+Route::controller('oleo-client/log', 'LogController');
 
 /*
 Route::post('/record', function(){
