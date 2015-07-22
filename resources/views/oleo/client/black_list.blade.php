@@ -4,6 +4,7 @@
 <div class="mdl-grid">
   <div class="mdl-cell mdl-cell--6-col mdl-grid">
     <form action="http://cefce6.cplaza.engg.nagoya-u.ac.jp/oleo-client/black-list" method="post">
+      <input type="hidden" name="_token" value="{{ csrf_token() }}">
       <div class="mdl-cell mdl-cell--2-col" id="black_register_button">
         <button class="mdl-button mdl-js-button mdl-button--fab mdl-js-ripple-effect mdl-button--accent">
           <i class="material-icons">add</i>
