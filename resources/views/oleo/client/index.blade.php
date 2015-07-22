@@ -3,16 +3,15 @@
   <head>
     <title>Oleo Client</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script type="text/javascript"
+        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
+    </script>
     <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:300,400,500,700" type="text/css">
     <link rel="stylesheet" href="http://cefce6.cplaza.engg.nagoya-u.ac.jp/css/material.min.css">
     <script src="http://cefce6.cplaza.engg.nagoya-u.ac.jp/js/material.min.js"></script>
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
-      <script type="text/javascript"
-        src="https//static.twilio.com/libs/twiliojs/1.2/twilio.min.js">
-      </script>
-      <script type="text/javascript"
-        src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js">
-      </script>
+    <script type="text/javascript"
+      src="//static.twilio.com/libs/twiliojs/1.2/twilio.min.js"></script>
 
       <script type="text/javascript">
 
