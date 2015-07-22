@@ -36,7 +36,9 @@ class LogController extends Controller
         $capability->allowClientOutgoing($this->app_sid);
         $capability->allowClientIncoming($this->app_name);
         $token = $capability->generateToken();
-        return view('oleo.client.log')->with('token', $token);
+
+        $logs = DB::table('logs')->get();
+        return view('oleo.client.log')->with('token', $token)->with('logs', $logs);
     }
 
     public function getLog()
