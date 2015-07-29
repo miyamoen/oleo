@@ -29,22 +29,22 @@ class Aud2Txt extends Job implements SelfHandling, ShouldQueue
      */
 
     private function GoogleSpeechAPI($flacFile){
-  
+
       $base = "https://www.google.com/speech-api/v2/recognize";
       $lang = "ja-jp";
       $output="json";
-      $key = "AIzaSyB5WVQ7UPgEIeyqRo9bpP0FRzRce9cBuAQ"; 
-      $contentType = "Content-Type: audio/x-flac; rate=16000;"; 
+      $key = "AIzaSyB5WVQ7UPgEIeyqRo9bpP0FRzRce9cBuAQ";
+      $contentType = "Content-Type: audio/x-flac; rate=16000;";
       $requestUrl = $base."?output=json&lang=ja-jp&key=$key";
-  
+
       $curl=curl_init($requestUrl);
       curl_setopt($curl,CURLOPT_POST, TRUE);
       curl_setopt($curl,CURLOPT_HTTPHEADER,array($contentType));
       curl_setopt($curl,CURLOPT_POSTFIELDS,file_get_contents($flacFile));
       curl_setopt($curl,CURLOPT_SSL_VERIFYPEER, FALSE);
-      curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, FALSE); 
+      curl_setopt($curl,CURLOPT_SSL_VERIFYHOST, FALSE);
       curl_setopt($curl,CURLOPT_RETURNTRANSFER, TRUE);
-      curl_setopt($curl,CURLOPT_FOLLOWLOCATION, TRUE); 
+      curl_setopt($curl,CURLOPT_FOLLOWLOCATION, TRUE);
       $output= curl_exec($curl);
       return $output;
     }
@@ -56,12 +56,6 @@ class Aud2Txt extends Job implements SelfHandling, ShouldQueue
       Storage::makeDirectory('aud/trim/');
       Storage::makeDirectory('aud/flac/');
 
-      /*
-      $output = shell_exec('mkdir /home/aki/aud');
-      $output = shell_exec('mkdir /home/aki/aud/trim/');
-      $output = shell_exec('mkdir /home/aki/aud/flac/');
-      */
-
       $fp = fopen("/home/aki/sample.txt", "a+");
       fwrite($fp, "hoge");
       fclose($fp);
@@ -69,7 +63,7 @@ class Aud2Txt extends Job implements SelfHandling, ShouldQueue
 #get Recording file
       $ch = curl_init($this->url);
       curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-      $data =  curl_exec($ch);      
+      $data =  curl_exec($ch);
       curl_close($ch);
       Storage::put('aud/record_file.wav', $data);
 
@@ -85,7 +79,7 @@ class Aud2Txt extends Job implements SelfHandling, ShouldQueue
 	  $y = str_replace("wav", "flac", $file_name);
 
 	  $output = shell_exec("sox ".storage_path('app/aud/trim/'.$file_name)." -r 16000 ".storage_path('app/aud/flac/'.$y));
-	  $text .= GoogleSpeechAPI(storage_path('app/aud/flac/'.$y));	 
+	  $text .= GoogleSpeechAPI(storage_path('app/aud/flac/'.$y));
 	}
       $fp = fopen("/home/aki/sample.txt", "a+");
       fwrite($fp, $text);
