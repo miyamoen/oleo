@@ -48,15 +48,16 @@ class ResponseController extends Controller
 
     public function getLog(Request $request)
     {
+      return 0;
+      /**/
+	  //if(isset($request->input("RecordingUrl",null)){
+	  //$this->dispatch(new SendReminderEmail($request->input("RecordingUrl","")))
+	  //  }*/
 
-      /*音声テキスト変換*/
-      if($request->has("RecordingUrl")){
-	$this->dispatch(new Aud2Txt($request));
-      }
 
        /* ログデータ準備 */
         $log_data = [
-	    'Call_Sid' => $request->input("DialCallSid",""),
+            'Call_Sid' => $request->input("DialCallSid",""),
             'DialCallStatus' => $request->input("DialCallStatus",""),
             'AccountSid' => $request->input("AccountSid",""),
             'CallDuration' => $request->input("DialCallDuration",""),
