@@ -51,19 +51,19 @@ class ResponseController extends Controller
 
       /*音声テキスト変換*/
       if($request->has("RecordingUrl")){
-	$this->dispatch(new Aud2Txt($request));
+        $this->dispatch(new Aud2Txt($request->input("RecordingUrl")));
       }
 
        /* ログデータ準備 */
         $log_data = [
-	    'Call_Sid' => $request->input("DialCallSid",""),
+            'Call_Sid' => $request->input("DialCallSid",""),
             'DialCallStatus' => $request->input("DialCallStatus",""),
             'AccountSid' => $request->input("AccountSid",""),
             'CallDuration' => $request->input("DialCallDuration",""),
             'RecordingUrl' => $request->input("RecordingUrl",""),
             ];
           DB::table('logs')->insert($log_data);
-	return view('oleo.log');
+      return view('oleo.log');
 
     }
 }

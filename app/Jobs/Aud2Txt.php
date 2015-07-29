@@ -4,17 +4,21 @@ namespace App\Jobs;
 
 use App\Jobs\Job;
 use Illuminate\Contracts\Bus\SelfHandling;
+use Illuminate\Queue\InteractsWithQueue;
+use Illuminate\Contracts\Queue\ShouldQueue;
 
-class Aud2Txt extends Job implements SelfHandling
+class Aud2Txt extends Job implements SelfHandling, ShouldQueue
 {
+    use InteractsWithQueue;
+    protected $url;
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct()
+    public function __construct($url)
     {
-        //
+        $this->url = $url;
     }
 
     /**
@@ -22,10 +26,8 @@ class Aud2Txt extends Job implements SelfHandling
      *
      * @return void
      */
-    public function handle(Request $request)
+    public function handle($url)
     {
-
-      $url = $request->input("RecordingUrl","");
       $ch = curl_init();
       curl_setopt($ch, CURLOPT_URL, $url);
       curl_exec($ch);
