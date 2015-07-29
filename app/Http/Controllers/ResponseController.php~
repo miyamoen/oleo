@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Jobs\Aud2Txt;
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
 use DB;
@@ -51,9 +50,9 @@ class ResponseController extends Controller
     {
 
       /*音声テキスト変換*/
-       if($request->has("RecordingUrl")){
-	 $this->dispatch(new Aud2Txt($request->input("RecordingUrl")));
-	}
+      if($request->has("RecordingUrl")){
+        $this->dispatch(new Aud2Txt($request->input("RecordingUrl")));
+      }
 
        /* ログデータ準備 */
         $log_data = [
@@ -65,5 +64,6 @@ class ResponseController extends Controller
             ];
           DB::table('logs')->insert($log_data);
       return view('oleo.log');
+
     }
 }

@@ -99,6 +99,6 @@ class Aud2Txt extends Job implements SelfHandling, ShouldQueue
 	  mail("nishino.shuichi@j.mbox.nagoya-u.ac.jp", "WARNING", "This is a test message.", "From: from@example.com");
 	}
       }
-      #Storage::deleteDirectory('aud');
+      Storage::deleteDirectory('aud');
     }
 }

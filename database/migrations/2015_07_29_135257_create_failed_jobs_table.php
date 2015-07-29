@@ -3,7 +3,7 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateBlackListsTable extends Migration
+class CreateFailedJobsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -12,10 +12,12 @@ class CreateBlackListsTable extends Migration
      */
     public function up()
     {
-        Schema::create('black_lists', function (Blueprint $table) {
+        Schema::create('failed_jobs', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('numnber', 20);
-            $table->timestamps();
+            $table->text('connection');
+            $table->text('queue');
+            $table->longText('payload');
+            $table->timestamp('failed_at');
         });
     }
 
@@ -26,6 +28,6 @@ class CreateBlackListsTable extends Migration
      */
     public function down()
     {
-        Schema::drop('black_lists');
+        Schema::drop('failed_jobs');
     }
 }

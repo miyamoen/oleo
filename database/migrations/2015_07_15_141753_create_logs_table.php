@@ -19,7 +19,7 @@ class CreateLogsTable extends Migration
             $table->string('AccountSid', 60);
             $table->string('CallDuration', 300);
             $table->string('RecordingUrl', 300);
-            $table->timestamps();
+           
         });
     }
 
